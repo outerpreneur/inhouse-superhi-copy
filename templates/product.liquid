@@ -85,7 +85,7 @@
   {% comment %}End Product Bottom{% endcomment %}
 
   {% if collection %}
-  {% include 'product-more' with collection: collection, limit: 6, exclude: product.handle %}
+  {% include 'product-more' with collection, collection: collection, limit: 6, exclude: product.handle %}
   {% endif %}
   
 
@@ -96,3 +96,15 @@
 
   
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'product-more' with collection: collection, limit: 6, exclude:
+    product.handle %}"
+  to: "{% include 'product-more' with collection, collection: collection, limit: 6,
+    exclude: product.handle %}"
+  position: 2715..2818
+{% endcomment %}

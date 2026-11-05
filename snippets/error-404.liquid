@@ -2,9 +2,18 @@
   <h1>{{ 'general.404.error_code' | t }}</h1>
   
   {% assign search_label = 'general.404.title' | t %}
-  {% include 'search-form' with label: search_label %}
+  {% include 'search-form' with label, label: search_label %}
 
   <a href="/" class="button">
     {{ 'general.404.back' | t }}
   </a>
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'search-form' with label: search_label %}"
+  to: "{% include 'search-form' with label, label: search_label %}"
+  position: 156..215
+{%- endcomment -%}

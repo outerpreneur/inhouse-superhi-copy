@@ -201,7 +201,7 @@
           {% comment %}Begin Collection Block{% endcomment %}
           {% assign collection = collections[block.settings.collection] %}
           <div class="collection-list-wrap wrapper">
-            {% include 'collection-list' with title: block.settings.title, content: block.settings.content, show_button: block.settings.show_button, button_text: block.settings.button_text, max_products: block.settings.max_products %}
+            {% include 'collection-list' with title, title: block.settings.title, content: block.settings.content, show_button: block.settings.show_button, button_text: block.settings.button_text, max_products: block.settings.max_products %}
           </div>
           
           {% comment %}End Collection Block{% endcomment %}
@@ -281,3 +281,17 @@
 
 
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'collection-list' with title: block.settings.title, content: block.settings.content,
+    show_button: block.settings.show_button, button_text: block.settings.button_text,
+    max_products: block.settings.max_products %}"
+  to: "{% include 'collection-list' with title, title: block.settings.title, content:
+    block.settings.content, show_button: block.settings.show_button, button_text:
+    block.settings.button_text, max_products: block.settings.max_products %}"
+  position: 5156..5385
+{% endcomment %}

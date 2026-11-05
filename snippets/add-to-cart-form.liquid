@@ -14,7 +14,7 @@
 {% endif %}
 
 {% if has_multiple_variants %}
-  {% include 'get-variants-with-quantity-json' with product: product %}
+  {% include 'get-variants-with-quantity-json' with product, product: product %}
 {% endif %}
 
 {% assign can_add_to_cart = false %}
@@ -38,9 +38,9 @@
       {% endif %}
 
       {% if option.name == 'Color' %}
-        {% include 'product-option-row' with option: option, option_name: option_name, selected: selected, force_colors: true %}
+        {% include 'product-option-row' with option, option: option, option_name: option_name, selected: selected, force_colors: true %}
       {% else %}
-        {% include 'product-option-row' with option: option, option_name: option_name, type: 'select', selected: selected %}
+        {% include 'product-option-row' with option, option: option, option_name: option_name, type: 'select', selected: selected %}
       {% endif %}
     {% endfor %}
   {% endif %}
@@ -54,4 +54,24 @@
     &ndash;
     <span class="js-price" data-default-price="{{ product.price | money }}">{{ current_variant.price | money }}</span>
   </button>
-</form>
+</form>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'get-variants-with-quantity-json' with product: product %}"
+  to: "{% include 'get-variants-with-quantity-json' with product, product: product
+    %}"
+  position: 439..517
+- from: "{% include 'product-option-row' with option: option, option_name: option_name,
+    selected: selected, force_colors: true %}"
+  to: "{% include 'product-option-row' with option, option: option, option_name: option_name,
+    selected: selected, force_colors: true %}"
+  position: 1348..1476
+- from: "{% include 'product-option-row' with option: option, option_name: option_name,
+    type: 'select', selected: selected %}"
+  to: "{% include 'product-option-row' with option, option: option, option_name: option_name,
+    type: 'select', selected: selected %}"
+  position: 1502..1626
+{%- endcomment -%}

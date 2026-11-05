@@ -23,7 +23,7 @@
           <div class="results-grid grid two-columns">
             {% for item in search.results %}
               {% if item.object_type == 'product' %}
-                {% include 'product-card' with product: item %}
+                {% include 'product-card' with product, product: item %}
               {% endif %}
             {% endfor %}
           </div>
@@ -35,4 +35,13 @@
     </div>
   {% endif %}
 
-</div> 
+</div> {%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'product-card' with product: item %}"
+  to: "{% include 'product-card' with product, product: item %}"
+  position: 1018..1074
+{%- endcomment -%}

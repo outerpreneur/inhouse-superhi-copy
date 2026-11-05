@@ -1,6 +1,22 @@
 <button class="slider-button prev js-slider-button-prev">
-  {% include 'inline-icon' with svg: 'icon-arrow-left.svg', alt: 'Previous', class: 'current-color-stroke' %}    
+  {% include 'inline-icon' with svg, svg: 'icon-arrow-left.svg', alt: 'Previous', class: 'current-color-stroke' %}    
 </button>
 <button class="slider-button next js-slider-button-next">
-  {% include 'inline-icon' with svg: 'icon-arrow-right.svg', alt: 'Next', class: 'current-color-stroke' %}    
-</button>
+  {% include 'inline-icon' with svg, svg: 'icon-arrow-right.svg', alt: 'Next', class: 'current-color-stroke' %}    
+</button>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'inline-icon' with svg: 'icon-arrow-left.svg', alt: 'Previous',
+    class: 'current-color-stroke' %}"
+  to: "{% include 'inline-icon' with svg, svg: 'icon-arrow-left.svg', alt: 'Previous',
+    class: 'current-color-stroke' %}"
+  position: 60..172
+- from: "{% include 'inline-icon' with svg: 'icon-arrow-right.svg', alt: 'Next', class:
+    'current-color-stroke' %}"
+  to: "{% include 'inline-icon' with svg, svg: 'icon-arrow-right.svg', alt: 'Next',
+    class: 'current-color-stroke' %}"
+  position: 247..356
+{%- endcomment -%}

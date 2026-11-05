@@ -19,6 +19,17 @@
 
     </select>
 
-    {% include 'inline-icon' with svg: 'icon-arrow-down.svg', class: 'current-color-stroke' %}
+    {% include 'inline-icon' with svg, svg: 'icon-arrow-down.svg', class: 'current-color-stroke' %}
   </div>
-{% endif %}
+{% endif %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'inline-icon' with svg: 'icon-arrow-down.svg', class: 'current-color-stroke'
+    %}"
+  to: "{% include 'inline-icon' with svg, svg: 'icon-arrow-down.svg', class: 'current-color-stroke'
+    %}"
+  position: 1024..1119
+{%- endcomment -%}
